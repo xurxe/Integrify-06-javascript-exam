@@ -6,6 +6,7 @@ countWords();
 6 */
 
 function countWord(paragraph, word) {
+
     // in order to use a parameter as the pattern for a regular expression, you need to use a RegExp as below:
     let regex = new RegExp(word, 'ig');
 
@@ -32,6 +33,7 @@ checkDatatTypes(arr);
 ["string","number","string","number","string","number"]; */
 
 function checkDatatTypes(array) {
+
     // create empty array to store data types
     let typeArray = [];
 
@@ -55,6 +57,7 @@ agesGreaterEighteen();
 [35, 30, 22, , 20]; */
 
 function filterAgesOverEighteen(array) {
+
     // create empty array to store the ages over 18
     let arrayOverEighteen = [];
 
@@ -76,6 +79,7 @@ console.log(filterAgesOverEighteen(ages));
 /* 4. Write a function that removes an item or items from the middle of the array and replaces them with two items */
 
 function removeMiddleAddTwo(array, item1, item2) {
+
     // Math.floor((array.length - 1) / 2) --> this gives the correct starting point for both odd and even lengths
     // 2 - array.length % 2 --> this gives 2 - 1 = 1 for odd lengths and 2 - 0 = 2 for even lengths
     // item1 and item2 are those to add
@@ -98,6 +102,7 @@ console.log(averageAge());
 22 */
 
 function calcMeanAge(array) {
+
     // initialize sum
     let sum = 0;
 
@@ -123,6 +128,7 @@ console.log(genCarPlateNum())
 JCB-586 */
 
 function genCarPlateNum() {
+
     // define letters and numbers
     let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let numbers = '0123456789'
@@ -162,6 +168,7 @@ console.log(genSocialSecurityNum())
 190395-225J */
 
 function genSSN1() {
+
     // declare empty array to hold SSN
     let ssnArray = [];
     
@@ -215,6 +222,7 @@ console.log(genSSN1()); // not perfect because it can generate invalid dates (fo
 
 
 function genSSN2() {
+    
     // declare empty array to hold SSN
     let ssnArray = [];
     
@@ -286,6 +294,7 @@ removeProduct(3);
 ["Coffee", "Tea", "Sugar"] */
 
 function addProduct(array, item) {
+
     // add item at the end
     array.push(item);
 
@@ -293,6 +302,7 @@ function addProduct(array, item) {
 }
 
 function editProduct(array, index, item) {
+
     // remove 1 item at specified index, add item instead
     array.splice(index, 1, item);
 
@@ -300,6 +310,7 @@ function editProduct(array, index, item) {
 }
 
 function removeProduct(array, index) {
+
     // remove 1 item at specified index
     array.splice(index, 1);
 
@@ -337,6 +348,7 @@ const todoList = [
 }] */
 
 function addTask(array, task) {
+
     // default date for new task: current date
     let currentDate = new Date();
     day = currentDate.getDate();
@@ -361,6 +373,7 @@ function addTask(array, task) {
 }
 
 function removeTask(array, index) {
+
     // remove 1 item from specified index 
     array.splice(index, 1);
 
@@ -368,6 +381,7 @@ function removeTask(array, index) {
 }
 
 function editTask(array, index, property, value) {
+
     // take object at specified index, name property, assign new value
     array[index][property] = value;
 
@@ -409,8 +423,10 @@ checkUniqueness(arrTwo);
 true */
 
 function checkUniqueness(array) {
+
     // loop through array
     for (let i = 0; i < array.length; i++) {
+
         // if the index of the first and last ocurrence of a value are not the same, the items are not unique
         if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) {
             return uniqueness = false;
@@ -422,10 +438,13 @@ function checkUniqueness(array) {
 }
 
 function checkUniqueness2(array) {
+
     // loop through array items
     for (let i = 0; i < array.length; i++) {
+
         // for each array item i, compare it with the items that come after (to avoid double comparisons)
         for (let j = i + 1; j < array.length; j++) {
+
             // if at any point two values are the same, then the items are not unique
             if (array[i] == array[j]) {
                 return false;
@@ -500,14 +519,68 @@ function filterScoresOver85(array) {
     // declare an empty array for the top students
     let topStudents = [];
 
-    // loop through array; if the student has a high score, push to topStudents
+    // loop through array
     for (i = 0; i < array.length; i++) {
+
+        // if the student has a high score, push to topStudents
         if (array[i].scores > 85) {
             topStudents.push(array[i]);
         }
     }
 
     return topStudents;
+}
+
+function addUser(array, object) {
+
+    // loop through array
+    for (let i = 0; i < array.length; i++) {
+
+        // if at any point the name of the new object is found in the array, the username already exists
+        if (array[i].name === object.name) {
+            console.log('That username already exist.');
+
+            return array;
+        }
+    }
+
+    // if the loop ran its course and the username doesn't exist yet, push object
+    array.push(object);
+    return array;
+}
+
+function addUserSkill(array, name, skill) {
+    // loop through array
+    for (let i = 0; i < array.length; i++) {
+
+        // if the username exists, push skill to skills array
+        if (array[i].name === name) {
+            array[i].skills.push(skill);
+            return array;
+        }
+    }
+
+    // if the loop ran its course without encountering the specified username, the username does not exist
+    console.log('That username does not exist.');
+
+    return array;
+}
+
+function editUser(array, name, property, value) {
+    // loop through array
+    for (let i = 0; i < array.length; i++) {
+
+        // if the username exists, assign specified value to specified property
+        if (array[i].name === name) {
+            array[i].property = value;
+            return array;
+        }
+    }
+
+    // if the loop ran its course without encountering the specified username, the username does not exist
+    console.log('That username does not exist.');
+
+    return array;
 }
 
 
@@ -556,4 +629,14 @@ const users = [
     }
 ];
 
+xurxe = {
+    name:'Xurxe', 
+    scores:90,
+    skills:['HTML', 'CSS'],
+    age:29
+}
+
 console.log(filterScoresOver85(users));
+console.log(addUser(users, xurxe));
+console.log(addUserSkill(users, 'Xurxe', 'JS'));
+console.log(editUser(users, 'Lala', 'scores', 95));
