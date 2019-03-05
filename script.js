@@ -5,7 +5,7 @@ I love JavaScript if you do not love something which can give life to your appli
 countWords();
 6 */
 
-function countWord(paragraph, word) {
+function countOccurences(paragraph, word) {
 
     // in order to use a parameter as the pattern for a regular expression, you need to use a RegExp as below:
     let regex = new RegExp(word, 'ig');
@@ -20,7 +20,8 @@ function countWord(paragraph, word) {
 }
 
 const paragraph = 'I love teaching. If you do not love teaching what else can you love. I love JavaScript if you do not love something which can give life to your application what else can you love.';
-console.log(countWord(paragraph, 'banana'));
+console.log(countOccurences(paragraph, 'love'));
+console.log(countOccurences(paragraph, 'banana'));
 
 
 
